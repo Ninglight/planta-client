@@ -1,0 +1,1 @@
+export type { IPlant, ILocation, ILocationTypes, IThirstTypes } from './plant';

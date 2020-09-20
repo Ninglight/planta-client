@@ -1,0 +1,77 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "esnext",
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@front-core": [
+        "./node_modules/@ep/front-core/dist"
+      ],
+      "@config": [
+        "./src/app/app-config.service"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@swagger/*": [
+        "./src/swagger/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ]
+    },
+    "allowJs": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts"
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "models/custom.d.ts"
+  ],
+  "paths": {
+    "@components": [
+      "./views/components/*"
+    ],
+    "@icons/*": [
+      "./views/icons/*"
+    ],
+    "@layouts/*": [
+      "./views/layouts/*"
+    ],
+    "@models": [
+      "./models/index.ts"
+    ]
+  }
+}

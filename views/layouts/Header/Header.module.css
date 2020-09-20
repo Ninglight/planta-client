@@ -1,0 +1,11 @@
+.header {
+    background-color: unset !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    margin: 0 auto;
+}
