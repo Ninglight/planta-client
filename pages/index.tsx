@@ -13,8 +13,11 @@ interface IIndexProps {
 
 const Index: React.FC<IIndexProps> = ({ plants }) => {
     console.log(plants)
-//   const heroPost = allPlants[0].node
-//   const morePlants = allPlants.slice(1)
+
+    // TODO: Add Header
+    // TODO: add container
+    // TODO: add input search
+
   return (
     <>
         <h1>🌱 Bienvenue</h1>
@@ -31,11 +34,31 @@ const Index: React.FC<IIndexProps> = ({ plants }) => {
 export default Index;
 
 
-export const getStaticProps: GetStaticProps = async () => {
-  //const plants = await getAllPlantsForHome(context.previewData)
+const transformPlant = (data: any): IPlant => {
   return {
-    props: { 
-      plants: plantsMock
-    },
+    name: data.common_name,
+    thumbnail: data.image_url
+  }
+}
+
+export const getStaticProps = async (context) => {
+  // TODO: create facade services
+  const token: string = process.env.TREFLE_API_TOKEN;
+  const url: string = `https://trefle.io/api/v1/plants?token=${token}&page=1`;
+  const res: Response = await fetch(url);
+  const data = await res.json()
+
+  const plants: Array<IPlant> = data.data.map((plant) => transformPlant(plant));
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      plants: plants
+    }
   }
 }
